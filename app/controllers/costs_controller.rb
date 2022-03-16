@@ -9,10 +9,7 @@ class CostsController < ApplicationController
       @pagy, @variable_ratio = pagy(@orders.left_joins(:category).select('costs.*,categories.name'), items:12)
      
   end
-
-  def show
-    @cost = current_user.costs.find(params[:id])
-  end
+  
 
   def new
     @cost = current_user.costs.build
